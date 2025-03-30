@@ -3,7 +3,7 @@ import { exec, execFile, fork, spawn, execFileSync, execSync, spawnSync } from '
 
 // Asynchronous process creation
 // Spawning .bat and .cmd files on Windows
-// child_process.exec(command[, options][, callback])
+// Ejecuta un comando de shell de forma asíncrona y captura su salida.
 export function ChilldProcessExec(command: string): void {
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -15,7 +15,7 @@ export function ChilldProcessExec(command: string): void {
   });
 }
 
-// child_process.execFile(file[, args][, options][, callback])
+// Ejecuta un archivo (por ejemplo, un script o binario) de forma asíncrona con argumentos.
 export function ChilldProcessExecFile(file: string, args: string[]): void {
     execFile(file, args, (error, stdout, stderr) => {
         if (error) {
@@ -27,7 +27,7 @@ export function ChilldProcessExecFile(file: string, args: string[]): void {
     }
     );
 }
-// child_process.fork(modulePath[, args][, options])
+// Crea un nuevo proceso de Node.js para ejecutar un módulo especificado y permite la comunicación.
 export function ChilldProcessFork(modulePath: string, args: string[]): void {
     const child = fork(modulePath, args);
     child.on('error', (error) => {
@@ -42,7 +42,7 @@ export function ChilldProcessFork(modulePath: string, args: string[]): void {
     child.send('Hello from parent process');
 }
 
-// Example of child_process.spawn
+// Crea un proceso hijo para un comando, proporcionando control sobre los flujos de entrada/salida.
 export function spawnExample(command: string, args: string[] = []) {
     const child = spawn(command, args, { detached: true, stdio: 'inherit' });
 
@@ -55,7 +55,7 @@ export function spawnExample(command: string, args: string[] = []) {
     });
 }
 
-// Example of child_process.execFileSync
+// Ejecuta un archivo de forma síncrona, bloqueando el bucle de eventos hasta que finalice.
 export function execFileSyncExample(file: string, args: string[] = []) {
     try {
         const output = execFileSync(file, args, { stdio: 'inherit' });
@@ -65,7 +65,7 @@ export function execFileSyncExample(file: string, args: string[] = []) {
     }
 }
 
-// Example of child_process.execSync
+// Ejecuta un comando de shell de forma síncrona, bloqueando el bucle de eventos hasta que finalice.
 export function execSyncExample(command: string) {
     try {
         const output = execSync(command, { stdio: 'inherit' });
@@ -75,7 +75,7 @@ export function execSyncExample(command: string) {
     }
 }
 
-// Example of child_process.spawnSync
+// Crea un proceso hijo de forma síncrona, proporcionando control sobre la ejecución y el bloqueo.
 export function spawnSyncExample(command: string, args: string[] = []) {
     try {
         const result = spawnSync(command, args, { stdio: 'inherit' });
