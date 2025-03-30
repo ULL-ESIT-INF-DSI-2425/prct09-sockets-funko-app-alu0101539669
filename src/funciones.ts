@@ -319,8 +319,7 @@ export function mostrarFunko(usuario: string, id: number): boolean {
       console.log();
       
     }
-  }
-  );
+  });
   if (bandera === false) {
     console.log(chalk.red(`Funko with ID ${id} does not exist`))
     return false;

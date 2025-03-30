@@ -16,7 +16,7 @@ export var Genero;
 (function (Genero) {
     Genero["Animacion"] = "Animacion";
     Genero["PeliculasYTV"] = "Peliculas y TV";
-    Genero["Videojuegos"] = "Videojuegos";
+    Genero["Videojuegos"] = "Games";
     Genero["Deportes"] = "Deportes";
     Genero["Musica"] = "M\u00FAsica";
     Genero["Anime"] = "Anime";

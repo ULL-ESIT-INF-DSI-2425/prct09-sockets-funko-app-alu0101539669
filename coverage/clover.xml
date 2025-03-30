@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1743261345670" clover="3.2.0">
-  <project timestamp="1743261345670" name="All files">
-    <metrics statements="382" coveredstatements="327" conditionals="86" coveredconditionals="86" methods="29" coveredmethods="29" elements="497" coveredelements="442" complexity="0" loc="382" ncloc="382" packages="1" files="4" classes="4"/>
+<coverage generated="1743352830300" clover="3.2.0">
+  <project timestamp="1743352830300" name="All files">
+    <metrics statements="395" coveredstatements="327" conditionals="87" coveredconditionals="87" methods="30" coveredmethods="30" elements="512" coveredelements="444" complexity="0" loc="395" ncloc="395" packages="1" files="5" classes="5"/>
     <file name="cliente.ts" path="/home/usuario/prct09-sockets-funko-app-alu0101539669/src/cliente.ts">
       <metrics statements="55" coveredstatements="0" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="2" count="0" type="stmt"/>
@@ -395,6 +395,22 @@
       <line num="19" count="1" type="stmt"/>
       <line num="20" count="1" type="stmt"/>
       <line num="21" count="1" type="stmt"/>
+    </file>
+    <file name="type1.ts" path="/home/usuario/prct09-sockets-funko-app-alu0101539669/src/type1.ts">
+      <metrics statements="13" coveredstatements="0" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
