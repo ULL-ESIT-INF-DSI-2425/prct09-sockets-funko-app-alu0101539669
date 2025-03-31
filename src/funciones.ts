@@ -1,12 +1,13 @@
+// Importación de módulos necesarios
 import { Funko } from "./funko.js";
-import {readFileSync, readdirSync, writeFileSync, unlinkSync, existsSync, mkdirSync } from 'fs';  // importar funciones de sistema de ficheros
-import chalk from "chalk";  // importar chalk para los colores
-import { Genero, Tipo } from "./type.js"; // importar los enums de tipo y genero
+import { readFileSync, readdirSync, writeFileSync, unlinkSync, existsSync, mkdirSync } from 'fs';
+import chalk from "chalk";
+import { Genero, Tipo } from "./type.js";
 
 /**
- * función que lee todos los funkos de un usuario
- * @param usuario usuario del que se quieren leer los funkos
- * @returns array de funkos del usuario
+ * Función que lee todos los Funkos de un usuario
+ * @param usuario Usuario del que se quieren leer los Funkos
+ * @returns Array de Funkos del usuario
  */
 export function leerFunkos(usuario: string): Funko[] {
   const nombre_usuario = usuario;   // nombre del usuario
@@ -24,21 +25,33 @@ export function leerFunkos(usuario: string): Funko[] {
 }
  
 /**
- * Método que añade un funko nuevo a la colección de un usuario
- * @param id id del funko
- * @param usuario usuario al que deseamos añadir el funko
- * @param nombre nombre del funko
- * @param descripcion descripción del funko
- * @param tipo tipo del funko
- * @param genero género del funko
- * @param franquicia franquicia del funko
- * @param numero número del funko
- * @param exclusivo es exclusivo o no
- * @param caracteristicasEspeciales características especiales del funko
- * @param valorMercado valor de mercado del funko
- * @returns true si se ha añadido correctamente, false si no.
+ * Método que añade un Funko nuevo a la colección de un usuario
+ * @param id ID del Funko
+ * @param usuario Usuario al que deseamos añadir el Funko
+ * @param nombre Nombre del Funko
+ * @param descripcion Descripción del Funko
+ * @param tipo Tipo del Funko
+ * @param genero Género del Funko
+ * @param franquicia Franquicia del Funko
+ * @param numero Número del Funko
+ * @param exclusivo Indica si es exclusivo
+ * @param caracteristicasEspeciales Características especiales del Funko
+ * @param valorMercado Valor de mercado del Funko
+ * @returns true si se ha añadido correctamente, false si no
  */
-export function addFunko(id:number, usuario:string, nombre: string, descripcion: string, tipo: Tipo, genero: Genero, franquicia: string, numero: number, exclusivo: boolean, caracteristicasEspeciales: string, valorMercado: number): boolean {
+export function addFunko(
+  id: number,
+  usuario: string,
+  nombre: string,
+  descripcion: string,
+  tipo: Tipo,
+  genero: Genero,
+  franquicia: string,
+  numero: number,
+  exclusivo: boolean,
+  caracteristicasEspeciales: string,
+  valorMercado: number
+): boolean {
   // 1. comprobar que el usuario existe
   const nombre_usuario = usuario;
   const path = "./database/" + nombre_usuario;  // path de la carpeta del usuario
@@ -100,12 +113,12 @@ export function addFunko(id:number, usuario:string, nombre: string, descripcion:
 }
 
 /**
- * función que elimina un funko de la colección de un usuario
- * @param usuario usuario del que se quiere eliminar el funko
- * @param ID_ id del funko a eliminar
- * @returns true si se ha eliminado correctamente, false si no.
+ * Función que elimina un Funko de la colección de un usuario
+ * @param usuario Usuario del que se quiere eliminar el Funko
+ * @param ID_ ID del Funko a eliminar
+ * @returns true si se ha eliminado correctamente, false si no
  */
-export function eliminarFunko(usuario:string, ID_: number): boolean {
+export function eliminarFunko(usuario: string, ID_: number): boolean {
   // 1. comprobar que el usuario existe
   const nombre_usuario = usuario;
   const path = "./database/" + nombre_usuario;
@@ -145,21 +158,33 @@ export function eliminarFunko(usuario:string, ID_: number): boolean {
 }
 
 /**
- * Función que modifica un funko de la colección de un usuario
- * @param id id del funko
- * @param usuario nombre del usuario
- * @param nombre nombre del funko
- * @param descripcion descripción del funko
- * @param tipo tipo del funko
- * @param genero género del funko
- * @param franquicia franquicia del funko
- * @param numero numero del funko
- * @param exclusivo exclusivo o no
- * @param caracteristicasEspeciales características especiales del funko
- * @param valorMercado valor de mercado del funko
- * @returns true si se ha modificado correctamente, false si no.
+ * Función que modifica un Funko de la colección de un usuario
+ * @param id ID del Funko
+ * @param usuario Nombre del usuario
+ * @param nombre Nombre del Funko
+ * @param descripcion Descripción del Funko
+ * @param tipo Tipo del Funko
+ * @param genero Género del Funko
+ * @param franquicia Franquicia del Funko
+ * @param numero Número del Funko
+ * @param exclusivo Indica si es exclusivo
+ * @param caracteristicasEspeciales Características especiales del Funko
+ * @param valorMercado Valor de mercado del Funko
+ * @returns true si se ha modificado correctamente, false si no
  */
-export function modificarFunko(id:number, usuario:string, nombre: string, descripcion: string, tipo: Tipo, genero: Genero, franquicia: string, numero: number, exclusivo: boolean, caracteristicasEspeciales: string, valorMercado: number): boolean {
+export function modificarFunko(
+  id: number,
+  usuario: string,
+  nombre: string,
+  descripcion: string,
+  tipo: Tipo,
+  genero: Genero,
+  franquicia: string,
+  numero: number,
+  exclusivo: boolean,
+  caracteristicasEspeciales: string,
+  valorMercado: number
+): boolean {
   // 1. comprobar que el usuario existe
   const nombre_usuario = usuario;
   const path = "./database/" + nombre_usuario;
@@ -222,9 +247,9 @@ export function modificarFunko(id:number, usuario:string, nombre: string, descri
 }
 
 /**
- * Función que lista los funkos de un usuario
- * @param usuario nombre del usuario
- * @returns true si se ha listado correctamente, false si no.
+ * Función que lista los Funkos de un usuario
+ * @param usuario Nombre del usuario
+ * @returns true si se ha listado correctamente, false si no
  */
 export function listaFunkos(usuario: string): boolean {
   // leer todos los funkos de un usuario
@@ -270,10 +295,10 @@ export function listaFunkos(usuario: string): boolean {
 }
 
 /**
- * Función que muestra un funko
- * @param usuario nombre del usuario
- * @param id identificador del funko
- * @returns true si se ha mostrado correctamente, false si no.
+ * Función que muestra un Funko
+ * @param usuario Nombre del usuario
+ * @param id Identificador del Funko
+ * @returns true si se ha mostrado correctamente, false si no
  */
 export function mostrarFunko(usuario: string, id: number): boolean {
   let mi_funko: Funko;

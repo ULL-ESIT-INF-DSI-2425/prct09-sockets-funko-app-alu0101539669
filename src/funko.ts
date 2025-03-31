@@ -1,13 +1,4 @@
-// ID. Debe ser un identificador único del Funko.
-// Nombre. Debe ser una cadena de caracteres.
-// Descripción. Debe ser una cadena de caracteres.
-// Tipo. Debe ser un enumerado con valores como, por ejemplo, Pop!, Pop! Rides, Vynil Soda o Vynil Gold, entre otros.
-// Género. Debe ser un enumerado con valores como, por ejemplo, Animación, Películas y TV, Videojuegos, Deportes, Música o Ánime, entre otras.
-// Franquicia. Debe ser una cadena de caracteres como, por ejemplo, The Big Bang Theory, Game of Thrones, Sonic The Hedgehog o Marvel: Guardians of the Galaxy, entre otras.
-// Número. Debe ser el número identificativo del Funko dentro de la franquicia correspondiente.
-// Exclusivo. Debe ser un valor booleano, esto es, verdadero en el caso de que el Funko sea exclusivo o falso en caso contrario.
-// Características especiales. Debe ser una cadena de caracteres que indique las característica especiales del Funko como, por ejemplo, si brilla en la oscuridad o si su cabeza balancea.
-// Valor de mercado. Debe ser un valor numérico positivo.
+// Clase que representa un Funko Pop con sus atributos y métodos
 
 import { Tipo, Genero } from './type.js';
 
@@ -15,17 +6,17 @@ import { Tipo, Genero } from './type.js';
  * Clase Funko
  */
 export class Funko {
-
-  private ID: number;
-  private nombre: string;
-  private descripcion: string;
-  private tipo: Tipo;
-  private genero: Genero;
-  private franquicia: string;
-  private numero: number;
-  private exclusivo: boolean;
-  private caracteristicasEspeciales: string;
-  private valorMercado: number;
+  // Atributos privados del Funko
+  private ID: number; // Identificador único del Funko
+  private nombre: string; // Nombre del Funko
+  private descripcion: string; // Descripción del Funko
+  private tipo: Tipo; // Tipo del Funko (Pop!, Vynil, etc.)
+  private genero: Genero; // Género del Funko (Animación, Deportes, etc.)
+  private franquicia: string; // Franquicia a la que pertenece el Funko
+  private numero: number; // Número identificativo dentro de la franquicia
+  private exclusivo: boolean; // Indica si el Funko es exclusivo
+  private caracteristicasEspeciales: string; // Características especiales del Funko
+  private valorMercado: number; // Valor de mercado del Funko
 
   /**
    * Constructor de la clase Funko
@@ -35,12 +26,23 @@ export class Funko {
    * @param genero_ genero del funko
    * @param franquicia_ franquicia del funko
    * @param numero_ numero del funko
-   * @param exclusivo_ es exlusivo o no
-   * @param caracteristicasEspeciales_ caracteristicas especiales del funko
+   * @param exclusivo_ es exclusivo o no
+   * @param caracteristicasEspeciales_ características especiales del funko
    * @param valorMercado_ valor de mercado del funko
    * @param ID_ identificador del funko
    */
-  constructor(nombre_: string, descripcion_: string, tipo_: Tipo, genero_: Genero, franquicia_: string, numero_: number, exclusivo_: boolean, caracteristicasEspeciales_: string, valorMercado_: number, ID_: number) {
+  constructor(
+    nombre_: string,
+    descripcion_: string,
+    tipo_: Tipo,
+    genero_: Genero,
+    franquicia_: string,
+    numero_: number,
+    exclusivo_: boolean,
+    caracteristicasEspeciales_: string,
+    valorMercado_: number,
+    ID_: number
+  ) {
     this.nombre = nombre_;
     this.descripcion = descripcion_;
     this.tipo = tipo_;
@@ -53,6 +55,7 @@ export class Funko {
     this.ID = ID_;
   }
 
+  // Métodos getter y setter para acceder y modificar los atributos del Funko
   /**
    * getter id
    */

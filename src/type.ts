@@ -1,5 +1,5 @@
 /**
- * Enum para los tipos de funkos.
+ * Enum para los tipos de Funkos.
  */
 export enum Tipo {
   Pop = "Pop!",
@@ -10,7 +10,7 @@ export enum Tipo {
 }
 
 /**
- * Enum para los géneros de funkos.
+ * Enum para los géneros de Funkos.
  */
 export enum Genero {
   Animacion = "Animacion",
@@ -19,11 +19,11 @@ export enum Genero {
   Deportes = "Deportes",
   Musica = "Música",
   Anime = "Anime",
-  }
-    
-//Definicion de types
+}
 
-//Respuesta 
+/**
+ * Tipo para las solicitudes al servidor.
+ */
 export type RequestType = {
   type: 'add' | 'modify' | 'remove' | 'read' | 'list';
   funkoPop?: {
@@ -38,9 +38,12 @@ export type RequestType = {
     exclusivo: boolean;
     caracteristicasEspeciales: string;
     valorMercado: number;
-  }
-}
+  };
+};
 
+/**
+ * Tipo para las respuestas del servidor.
+ */
 export type ResponseType = {
   type: 'add' | 'modify' | 'remove' | 'read' | 'list' | 'error';
   success: boolean;
@@ -58,4 +61,4 @@ export type ResponseType = {
     caracteristicasEspeciales: string;
     valorMercado: number;
   }[];
-}
+};

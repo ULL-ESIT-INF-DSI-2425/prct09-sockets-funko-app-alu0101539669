@@ -1,27 +1,19 @@
-// ID. Debe ser un identificador único del Funko.
-// Nombre. Debe ser una cadena de caracteres.
-// Descripción. Debe ser una cadena de caracteres.
-// Tipo. Debe ser un enumerado con valores como, por ejemplo, Pop!, Pop! Rides, Vynil Soda o Vynil Gold, entre otros.
-// Género. Debe ser un enumerado con valores como, por ejemplo, Animación, Películas y TV, Videojuegos, Deportes, Música o Ánime, entre otras.
-// Franquicia. Debe ser una cadena de caracteres como, por ejemplo, The Big Bang Theory, Game of Thrones, Sonic The Hedgehog o Marvel: Guardians of the Galaxy, entre otras.
-// Número. Debe ser el número identificativo del Funko dentro de la franquicia correspondiente.
-// Exclusivo. Debe ser un valor booleano, esto es, verdadero en el caso de que el Funko sea exclusivo o falso en caso contrario.
-// Características especiales. Debe ser una cadena de caracteres que indique las característica especiales del Funko como, por ejemplo, si brilla en la oscuridad o si su cabeza balancea.
-// Valor de mercado. Debe ser un valor numérico positivo.
+// Clase que representa un Funko Pop con sus atributos y métodos
 /**
  * Clase Funko
  */
 export class Funko {
-    ID;
-    nombre;
-    descripcion;
-    tipo;
-    genero;
-    franquicia;
-    numero;
-    exclusivo;
-    caracteristicasEspeciales;
-    valorMercado;
+    // Atributos privados del Funko
+    ID; // Identificador único del Funko
+    nombre; // Nombre del Funko
+    descripcion; // Descripción del Funko
+    tipo; // Tipo del Funko (Pop!, Vynil, etc.)
+    genero; // Género del Funko (Animación, Deportes, etc.)
+    franquicia; // Franquicia a la que pertenece el Funko
+    numero; // Número identificativo dentro de la franquicia
+    exclusivo; // Indica si el Funko es exclusivo
+    caracteristicasEspeciales; // Características especiales del Funko
+    valorMercado; // Valor de mercado del Funko
     /**
      * Constructor de la clase Funko
      * @param nombre_ nombre del funko
@@ -30,8 +22,8 @@ export class Funko {
      * @param genero_ genero del funko
      * @param franquicia_ franquicia del funko
      * @param numero_ numero del funko
-     * @param exclusivo_ es exlusivo o no
-     * @param caracteristicasEspeciales_ caracteristicas especiales del funko
+     * @param exclusivo_ es exclusivo o no
+     * @param caracteristicasEspeciales_ características especiales del funko
      * @param valorMercado_ valor de mercado del funko
      * @param ID_ identificador del funko
      */
@@ -47,6 +39,7 @@ export class Funko {
         this.valorMercado = valorMercado_;
         this.ID = ID_;
     }
+    // Métodos getter y setter para acceder y modificar los atributos del Funko
     /**
      * getter id
      */

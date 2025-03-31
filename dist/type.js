@@ -1,5 +1,5 @@
 /**
- * Enum para los tipos de funkos.
+ * Enum para los tipos de Funkos.
  */
 export var Tipo;
 (function (Tipo) {
@@ -10,7 +10,7 @@ export var Tipo;
     Tipo["VynilPlatinum"] = "Vynil Platinum";
 })(Tipo || (Tipo = {}));
 /**
- * Enum para los géneros de funkos.
+ * Enum para los géneros de Funkos.
  */
 export var Genero;
 (function (Genero) {

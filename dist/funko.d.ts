@@ -21,8 +21,8 @@ export declare class Funko {
      * @param genero_ genero del funko
      * @param franquicia_ franquicia del funko
      * @param numero_ numero del funko
-     * @param exclusivo_ es exlusivo o no
-     * @param caracteristicasEspeciales_ caracteristicas especiales del funko
+     * @param exclusivo_ es exclusivo o no
+     * @param caracteristicasEspeciales_ características especiales del funko
      * @param valorMercado_ valor de mercado del funko
      * @param ID_ identificador del funko
      */

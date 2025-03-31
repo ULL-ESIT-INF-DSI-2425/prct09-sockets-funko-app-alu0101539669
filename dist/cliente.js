@@ -3,9 +3,11 @@ import net from 'net';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { Genero, Tipo } from './type.js';
+// Establecemos la conexión con el servidor
 const client = net.connect({ port: 60300 }, () => {
     console.log('Connected to server!');
 });
+// Manejar la respuesta del servidor
 client.on('data', (data) => {
     const response = JSON.parse(data.toString());
     if (response.type === 'error') {
@@ -18,8 +20,8 @@ client.on('data', (data) => {
         }
     }
 });
-// Definimos los comandos de yargs
-yargs(hideBin(process.argv)).command('add', 'Adds a funko', {
+// Definimos los comandos de yargs para interactuar con el servidor
+yargs(hideBin(process.argv)).command('add', 'Añade un Funko', {
     user: { type: 'string', demandOption: true },
     id: { type: 'number', demandOption: true },
     nombre: { type: 'string', demandOption: true },
@@ -51,7 +53,7 @@ yargs(hideBin(process.argv)).command('add', 'Adds a funko', {
     client.write(JSON.stringify(request));
     console.log(`Request sent: ${JSON.stringify(request)}`);
 }).help().argv;
-yargs(hideBin(process.argv)).command('remove', 'Removes a funko', {
+yargs(hideBin(process.argv)).command('remove', 'Elimina un Funko', {
     user: { type: 'string', demandOption: true },
     id: { type: 'number', demandOption: true }
 }, (args) => {
@@ -74,7 +76,7 @@ yargs(hideBin(process.argv)).command('remove', 'Removes a funko', {
     client.write(JSON.stringify(request));
     console.log(`Request sent: ${JSON.stringify(request)}`);
 }).help().argv;
-yargs(hideBin(process.argv)).command('modify', 'Modifies a funko', {
+yargs(hideBin(process.argv)).command('modify', 'Modifica un Funko', {
     user: { type: 'string', demandOption: true },
     id: { type: 'number', demandOption: true },
     nombre: { type: 'string', demandOption: true },
@@ -106,7 +108,7 @@ yargs(hideBin(process.argv)).command('modify', 'Modifies a funko', {
     client.write(JSON.stringify(request));
     console.log(`Request sent: ${JSON.stringify(request)}`);
 }).help().argv;
-yargs(hideBin(process.argv)).command('list', 'Lists a funko', {
+yargs(hideBin(process.argv)).command('list', 'Lista los Funkos de un usuario', {
     user: { type: 'string', demandOption: true }
 }, (args) => {
     const request = {
@@ -128,7 +130,7 @@ yargs(hideBin(process.argv)).command('list', 'Lists a funko', {
     client.write(JSON.stringify(request));
     console.log(`Request sent: ${JSON.stringify(request)}`);
 }).help().argv;
-yargs(hideBin(process.argv)).command('read', 'Reads a funko', {
+yargs(hideBin(process.argv)).command('read', 'Lee un Funko específico', {
     user: { type: 'string', demandOption: true },
     id: { type: 'number', demandOption: true }
 }, (args) => {
