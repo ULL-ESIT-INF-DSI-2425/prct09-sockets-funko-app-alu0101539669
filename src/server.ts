@@ -110,8 +110,8 @@ net.createServer((connection) => {
         }
 
         // Enviar la respuesta al cliente y cerrar la conexión
-        connection.write(JSON.stringify(response));
-        connection.end();
+        connection.write(JSON.stringify(response)); // Enviar respuesta al cliente
+        connection.end(); // Cerrar la conexión
     });
 
     // Manejar errores en la conexión

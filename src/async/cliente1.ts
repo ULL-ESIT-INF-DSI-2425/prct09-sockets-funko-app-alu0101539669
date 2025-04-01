@@ -1,9 +1,9 @@
 // Importamos los módulos necesarios
-import net from 'net'; 
-import { RequestType} from './type.js';
+import net from 'net';
 import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers'; 
-import { Genero, Tipo } from './type.js';
+import { hideBin } from 'yargs/helpers';
+import { addFunko, eliminarFunko, listaFunkos, mostrarFunko, modificarFunko } from './funcionesasync.js';
+import { Genero, Tipo, RequestType } from './type1.js';
 
 // Establecemos la conexión con el servidor
 const client = net.connect({port: 60300}, () => {
@@ -13,11 +13,10 @@ const client = net.connect({port: 60300}, () => {
 // Manejar la respuesta del servidor
 client.on('data', (data) => {
   const response = JSON.parse(data.toString());
-  console.log('Response from server:', response); // Imprimir la respuesta en el cliente
   if (response.type === 'error') {
     console.error(`Error: ${response.message}`);
   } else {
-    console.log(`Message: ${response.message}`); // Mostrar el mensaje del servidor
+    console.log(`Response: ${response.message}`);
     if (response.funkoPops) {
       console.log('Funkos:', response.funkoPops);
     }

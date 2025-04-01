@@ -3,6 +3,8 @@ import { Funko } from "./funko.js";
 import { readFileSync, readdirSync, writeFileSync, unlinkSync, existsSync, mkdirSync } from 'fs';
 import chalk from "chalk";
 import { Genero, Tipo } from "./type.js";
+import fs from 'fs';
+import path from 'path';
 
 /**
  * Función que lee todos los Funkos de un usuario
