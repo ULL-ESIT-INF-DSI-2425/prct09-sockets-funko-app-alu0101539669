@@ -10,11 +10,12 @@ const client = net.connect({ port: 60300 }, () => {
 // Manejar la respuesta del servidor
 client.on('data', (data) => {
     const response = JSON.parse(data.toString());
+    console.log('Response from server:', response); // Imprimir la respuesta en el cliente
     if (response.type === 'error') {
         console.error(`Error: ${response.message}`);
     }
     else {
-        console.log(`Response: ${response.message}`);
+        console.log(`Message: ${response.message}`); // Mostrar el mensaje del servidor
         if (response.funkoPops) {
             console.log('Funkos:', response.funkoPops);
         }

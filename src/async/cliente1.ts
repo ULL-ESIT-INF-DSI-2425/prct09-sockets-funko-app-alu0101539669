@@ -1,8 +1,7 @@
 // Importamos los módulos necesarios
 import net from 'net';
 import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
-import { addFunko, eliminarFunko, listaFunkos, mostrarFunko, modificarFunko } from './funcionesasync.js';
+import { hideBin } from 'yargs/helpers'; 
 import { Genero, Tipo, RequestType } from './type1.js';
 
 // Establecemos la conexión con el servidor

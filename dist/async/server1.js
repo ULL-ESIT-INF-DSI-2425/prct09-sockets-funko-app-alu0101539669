@@ -7,16 +7,17 @@ net.createServer((socket) => {
     console.log('Cliente conectado');
     // Manejar la recepción de datos del cliente
     socket.on('data', async (data) => {
-        const request = JSON.parse(data.toString());
-        let response;
-        const userDir = path.join('./database', request.funkoPop?.usuario || '');
+        const request = JSON.parse(data.toString()); // Parseamos la solicitud del cliente
+        let response; // Inicializamos la respuesta
+        const userDir = path.join('./database', request.funkoPop?.usuario || ''); // Directorio del usuario
         try {
             switch (request.type) {
-                case 'add':
+                case 'add': // Caso para añadir un Funko
                     if (request.funkoPop) {
-                        await fs.mkdir(userDir, { recursive: true });
-                        const filePath = path.join(userDir, `${request.funkoPop.id}.json`);
+                        await fs.mkdir(userDir, { recursive: true }); // Crear directorio del usuario si no existe
+                        const filePath = path.join(userDir, `${request.funkoPop.id}.json`); // Ruta del archivo del Funko
                         if (await fs.access(filePath).then(() => true).catch(() => false)) {
+                            // Si el archivo ya existe, devolvemos un error
                             response = {
                                 type: 'add',
                                 success: false,
@@ -24,6 +25,7 @@ net.createServer((socket) => {
                             };
                         }
                         else {
+                            // Si no existe, lo añadimos
                             await fs.writeFile(filePath, JSON.stringify(request.funkoPop));
                             response = {
                                 type: 'add',
@@ -33,6 +35,7 @@ net.createServer((socket) => {
                         }
                     }
                     else {
+                        // Si no se proporciona un Funko válido
                         response = {
                             type: 'error',
                             success: false,
@@ -40,7 +43,7 @@ net.createServer((socket) => {
                         };
                     }
                     break;
-                case 'modify':
+                case 'modify': // Caso para modificar un Funko
                     if (request.funkoPop) {
                         const filePath = path.join(userDir, `${request.funkoPop.id}.json`);
                         if (await fs.access(filePath).then(() => true).catch(() => false)) {
@@ -67,7 +70,7 @@ net.createServer((socket) => {
                         };
                     }
                     break;
-                case 'remove':
+                case 'remove': // Caso para eliminar un Funko
                     if (request.funkoPop) {
                         const filePath = path.join(userDir, `${request.funkoPop.id}.json`);
                         if (await fs.access(filePath).then(() => true).catch(() => false)) {
@@ -94,7 +97,7 @@ net.createServer((socket) => {
                         };
                     }
                     break;
-                case 'read':
+                case 'read': // Caso para leer un Funko
                     if (request.funkoPop) {
                         const filePath = path.join(userDir, `${request.funkoPop.id}.json`);
                         if (await fs.access(filePath).then(() => true).catch(() => false)) {
@@ -122,7 +125,7 @@ net.createServer((socket) => {
                         };
                     }
                     break;
-                case 'list':
+                case 'list': // Caso para listar todos los Funkos de un usuario
                     if (await fs.access(userDir).then(() => true).catch(() => false)) {
                         const files = await fs.readdir(userDir);
                         const funkos = await Promise.all(files.map(async (file) => {
@@ -145,6 +148,7 @@ net.createServer((socket) => {
                     }
                     break;
                 default:
+                    // Caso para operaciones no soportadas
                     response = {
                         type: 'error',
                         success: false,
@@ -153,19 +157,21 @@ net.createServer((socket) => {
             }
         }
         catch (err) {
+            // Manejo de errores generales
             response = {
                 type: 'error',
                 success: false,
                 message: `Error procesando la solicitud: ${err instanceof Error ? err.message : 'Error desconocido'}`
             };
         }
+        // Enviar la respuesta al cliente
         socket.write(JSON.stringify(response), () => {
             socket.end(); // Cierra la conexión con el cliente después de enviar la respuesta
         });
     });
     socket.on('end', () => {
-        console.log('Cliente desconectado');
+        console.log('Cliente desconectado'); // Mensaje cuando el cliente se desconecta
     });
 }).listen(60300, () => {
-    console.log('Servidor escuchando en el puerto 60300');
+    console.log('Servidor escuchando en el puerto 60300'); // Mensaje cuando el servidor comienza a escuchar
 });
