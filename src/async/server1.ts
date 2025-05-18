@@ -3,7 +3,7 @@ import net from 'net';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { RequestType, ResponseType } from './type1.js';
-import { addFunko, eliminarFunko, listaFunkos, mostrarFunko, modificarFunko } from './funcionesasync.js';
+ 
 
 // Creamos el servidor
 net.createServer((socket) => {
